@@ -96,7 +96,7 @@ class App extends React.Component<{}, AppState>{
             </div>
           </div>
           <div className="main-page__container">
-            <div className="main-page__container__title">Activo Team Members</div>
+            <div className="main-page__container__title">Vali Team Members</div>
             <div className="main-page__container__list">
               {
                 this.state.teamMates.map((teamMember: any, index: any) => (
@@ -110,14 +110,15 @@ class App extends React.Component<{}, AppState>{
                       >
                         <div className="main-page__list-item__name">{`${teamMember.name}`}</div>
                         {
-                          teamMember.selected 
-                            ? <div>Speaking</div> 
+                          teamMember.selected
+                            ? <div>Speaking</div>
                             : teamMember.isPaused && !teamMember.isDone && <div>&#10074; &#10074;</div>
                         }
                         {
                           teamMember.isDone &&  <div className="main-page__container__check">&#x2714;</div>
                         }
                     </div>
+                    <input type="checkbox" title="Has Question" />
                     <div onClick={this.deleteMember(teamMember)}>
                       <img
                         className="main-page__container__delete-icon"
@@ -232,7 +233,7 @@ class App extends React.Component<{}, AppState>{
         ))
       })
     }
-    
+
     this.setState(()=>this.setSelected(this.state.teamMates,selectedMember));
   }
 
